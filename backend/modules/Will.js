@@ -39,6 +39,11 @@ const willSchema = new mongoose.Schema(
       default: "ACTIVE",
     },
 
+    willText: {
+  type: String,
+  required: true,
+},
+
     documentHash: {
       type: String,
     },
