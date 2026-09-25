@@ -5,7 +5,6 @@ const willSchema = new mongoose.Schema(
     willId: {
       type: String,
       required: true,
-      unique: true,
     },
 
     testatorName: {
@@ -30,6 +29,7 @@ const willSchema = new mongoose.Schema(
 
     version: {
       type: Number,
+      required: true,
       default: 1,
     },
 
@@ -43,14 +43,36 @@ const willSchema = new mongoose.Schema(
       type: String,
     },
 
-    deathVerified: {
-      type: Boolean,
-      default: false,
+    deathVerificationStatus: {
+      type: String,
+      enum: ["NOT_VERIFIED", "PENDING", "VERIFIED"],
+      default: "NOT_VERIFIED",
     },
+
+    deathVerifiedAt: {
+      type: Date,
+    },
+
+    beneficiaries: [
+      {
+        name: {
+          type: String,
+          required: true,
+        },
+        identifier: {
+          type: String,
+          required: true,
+        },
+        relationship: {
+          type: String,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Will", willSchema);
+module.exports =
+  mongoose.models.Will || mongoose.model("Will", willSchema);

@@ -3,8 +3,7 @@ const express = require("express");
 const {
   createWill,
   getWills,
-} = require("../controllers/willcontrollers");
-
+} = require("../controllers/willController");
 const router = express.Router();
 
 router.post("/", createWill);
