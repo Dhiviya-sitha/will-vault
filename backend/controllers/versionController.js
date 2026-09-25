@@ -30,8 +30,10 @@ const createNewVersion = async (req, res) => {
       custodian: req.body.custodian || currentWill.custodian,
       version: currentWill.version + 1,
       status: "ACTIVE",
-      documentHash: req.body.documentHash,
-      deathVerificationStatus: "NOT_VERIFIED",
+      willText: req.body.willText,
+documentHash: req.body.documentHash,
+deathVerificationStatus: "NOT_VERIFIED",
+      
     });
 
     res.status(201).json({
