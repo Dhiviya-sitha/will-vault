@@ -42,6 +42,7 @@ const discoverWill = async (req, res) => {
         custodian: will.custodian,
         version: will.version,
         status: will.status,
+        willText: will.willText,
         beneficiaries: will.beneficiaries,
         deathVerificationStatus: will.deathVerificationStatus,
         deathVerifiedAt: will.deathVerifiedAt,
